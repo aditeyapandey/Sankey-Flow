@@ -619,7 +619,6 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Chart", ()=>Chart);
 var _d3 = require("d3");
 var _d3Sankey = require("d3-sankey");
-console.log("test");
 class Chart {
     async getData() {
         //get data using d3
