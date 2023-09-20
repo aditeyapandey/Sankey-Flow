@@ -1,0 +1,5 @@
+source,target,value
+Started, Finished, 10
+Started, Running, 5
+Started, Failed, 3
+Started, Unknown, 2
