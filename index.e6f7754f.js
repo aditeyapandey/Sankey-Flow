@@ -578,18 +578,30 @@ var _chart = require("./chart");
 var _jquery = require("jquery");
 window.onload = async ()=>{
     const chart = new (0, _chart.Chart)();
-    let chartData = await chart.getData();
+    let chartData1 = await chart.getData("data.csv");
     // @ts-ignore
-    let sankey = chart.sankeyChart({
-        links: chartData
+    let sankey1 = chart.sankeyChart({
+        links: chartData1
     }, {
         nodeGroup: function(d) {
             return d.id.split(/\W/)[0];
         }
     });
-    console.log(sankey);
+    console.log(sankey1);
     //embed chart using jquery
-    _jquery("#chart").html(sankey);
+    _jquery("#chart1").html(sankey1);
+    let chartData2 = await chart.getData("data2.csv");
+    // @ts-ignore
+    let sankey2 = chart.sankeyChart({
+        links: chartData2
+    }, {
+        nodeGroup: function(d) {
+            return d.id.split(/\W/)[0];
+        }
+    });
+    console.log(sankey2);
+    //embed chart using jquery
+    _jquery("#chart2").html(sankey2);
 };
 
 },{"./chart":"dqZQw","jquery":"hgMhh"}],"dqZQw":[function(require,module,exports) {
@@ -601,9 +613,9 @@ parcelHelpers.export(exports, "Chart", ()=>Chart);
 var _d3 = require("d3");
 var _d3Sankey = require("d3-sankey");
 class Chart {
-    async getData() {
+    async getData(filename) {
         //get data using d3
-        let data = await _d3.csv("data.csv");
+        let data = await _d3.csv(filename);
         return data;
     }
     sankeyChart({ nodes, links// an iterable of link objects (typically [{source, target}, …])
