@@ -1,0 +1,20 @@
+{
+  "name": "parcel-typescript",
+  "version": "1.0.0",
+  "description": "example parcel with typescript",
+  "main": "index.js",
+  "scripts": {
+    "clean:output": "rimraf dist",
+    "dev": "npm run clean:output && parcel src/index.html",
+    "build": "npm run clean:output && parcel build dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "d3": "7.8.5",
+    "d3-sankey": "0.12.3",
+    "jquery": "3.7.1",
+    "parcel": "^2.1.1",
+    "parcel-bundler": "^1.12.5"
+  }
+}
