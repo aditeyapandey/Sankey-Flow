@@ -574,44 +574,26 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"lyqAI":[function(require,module,exports) {
-var _user = require("./User");
-window.onload = ()=>{
-    let title = document.querySelector("#title");
-    const tsUser = new (0, _user.User)("Dany Paredes", 36);
-    if (title) title.innerHTML = tsUser.hello();
-};
-
-},{"./User":"amVbG"}],"amVbG":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "User", ()=>User);
 var _chart = require("./chart");
 var _jquery = require("jquery");
-class User {
-    constructor(name = "no name", age = 35){
-        this.name = name;
-        this.age = age;
-    }
-    async hello() {
-        const chart = new (0, _chart.Chart)();
-        let chartData = await chart.getData();
-        console.log(chartData);
-        // @ts-ignore
-        let sankey = chart.sankeyChart({
-            links: chartData
-        }, {
-            nodeGroup: function(d) {
-                return d.id.split(/\W/)[0];
-            }
-        });
-        console.log(sankey);
-        //embed chart using jquery
-        _jquery("#chart").html(sankey);
-    // return `Hi ${this.name} your age is ${this.age} mother fucker. `;
-    }
-}
+window.onload = async ()=>{
+    const chart = new (0, _chart.Chart)();
+    let chartData = await chart.getData();
+    console.log(chartData);
+    // @ts-ignore
+    let sankey = chart.sankeyChart({
+        links: chartData
+    }, {
+        nodeGroup: function(d) {
+            return d.id.split(/\W/)[0];
+        }
+    });
+    console.log(sankey);
+    //embed chart using jquery
+    _jquery("#chart").html(sankey);
+};
 
-},{"./chart":"dqZQw","jquery":"hgMhh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dqZQw":[function(require,module,exports) {
+},{"./chart":"dqZQw","jquery":"hgMhh"}],"dqZQw":[function(require,module,exports) {
 //suppress typescript error
 // @ts-nocheck
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
