@@ -579,7 +579,6 @@ var _jquery = require("jquery");
 window.onload = async ()=>{
     const chart = new (0, _chart.Chart)();
     let chartData = await chart.getData();
-    console.log(chartData);
     // @ts-ignore
     let sankey = chart.sankeyChart({
         links: chartData

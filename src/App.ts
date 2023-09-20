@@ -4,7 +4,6 @@ import * as $ from 'jquery';
 window.onload = async() => {
   const chart = new Chart();
     let chartData = await chart.getData();
-    console.log(chartData);
     // @ts-ignore
     let sankey = chart.sankeyChart({
       links: chartData,
