@@ -4,15 +4,17 @@
   "description": "example parcel with typescript",
   "main": "index.js",
   "scripts": {
-    "clean:output": "rimraf dist",
+    "clean:output": "rimraf dist && mkdir dist",
     "dev": "npm run clean:output && parcel src/index.html",
-    "build": "npm run clean:output && parcel build dist"
+    "build": "parcel build dist",
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "d3": "7.8.5",
     "d3-sankey": "0.12.3",
+    "gh-pages": "6.0.0",
     "jquery": "3.7.1",
     "parcel": "^2.1.1",
     "parcel-bundler": "^1.12.5"
